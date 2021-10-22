@@ -428,9 +428,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0781e8f4679bbf5408fabf34b77c269a, type: 3}
   - {fileID: 21300000, guid: bd3e87a14ed68be45a486fc4cf99f1f4, type: 3}
   - {fileID: 21300000, guid: 5bc7f00a22b78444fa6eda6a1b0d8a5e, type: 3}
-  UITransition: {fileID: 627085505}
+  uITransition: {fileID: 627085505}
   _textMeshPro: {fileID: 1692211734}
   randomDiceSide: 0
+  canPlayerMove: 0
 --- !u!1 &1492668167
 GameObject:
   m_ObjectHideFlags: 0
