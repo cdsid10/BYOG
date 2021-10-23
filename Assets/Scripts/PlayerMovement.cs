@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Experimental.Rendering.LWRP;
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Light2D _globalLight;
     [SerializeField] private GameObject playerLight;
+
+    [SerializeField] private TextMeshProUGUI objectiveText;
     
     [SerializeField] private float moveSpeed;
 
@@ -37,24 +40,30 @@ public class PlayerMovement : MonoBehaviour
             {
                 case 0:
                     NormalMovement();
+                    objectiveText.text = "eSCAPE THE iNFECTED AREA (DEFAULT CONTROLS MODE).";
                     break;
                 case 1:
                     InvertedMovement();
+                    objectiveText.text = "eSCAPE THE iNFECTED AREA (INVERTED CONTROLS MODE).";
                     break;
                 case 2:
                     SuperSpeed();
+                    objectiveText.text = "eSCAPE THE iNFECTED AREA (2X MODE).";
                     break;
                 case 3:
                     NormalMovement();
+                    objectiveText.text = "eSCAPE THE iNFECTED AREA (LIGHTS OUT MODE).";
                     _globalLight.intensity = 0.05f;
                     playerLight.SetActive(true);
                     break;
                 case 4:
                     NormalMovement();
+                    objectiveText.text = "eSCAPE THE dECONTAMINATED AREA (INFECTED MODE).";
                     _playerActions.InfectedMode();
                     break;
                 case 5:
                     NormalMovement();
+                    objectiveText.text = "eSCAPE THE iNFECTED AREA (LOW ON OXYGEN MODE).";
                     _playerActions.OxygenMode();
                     break;
             }

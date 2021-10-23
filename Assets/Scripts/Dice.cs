@@ -36,7 +36,7 @@ public class Dice : MonoBehaviour
             0 => "tHE dEFAULT wAY TO eSCAPE.",
             1 => "tHE iNVERTED wAY TO eSCAPE.",
             2 => "tHE fASTEST wAY TO eSCAPE.",
-            3 => "dARKER iNFESTATIONS. LOWER VISIBILTY, MORE THREAT.",
+            3 => "dARKER iNFESTATIONS.",
             4 => "iNFECTED, SAY wHAT??!",
             5 => "lIMITED oXYGEN sUPPLY!",
             _ => uILevelName.text
@@ -46,13 +46,13 @@ public class Dice : MonoBehaviour
     IEnumerator RollDice()
     {
         randomDiceSide = -1;
-        yield return new WaitForSeconds(2.8f); //change this back to 3
+        yield return new WaitForSeconds(0.5f); //change this back to 3
         beforeUITransition.SetActive(false);
-        //randomDiceSide = Random.Range(0, 6); 
-        randomDiceSide = 3;
+        randomDiceSide = Random.Range(0, 6); 
+        //randomDiceSide = 5;
         _image.enabled = true;
         _image.sprite = diceSides[randomDiceSide];
-        yield return new WaitForSeconds(4f); //change this back to 3
+        yield return new WaitForSeconds(1f); //change this back to 3
         uITransition.SetActive(false);
         canPlayerMove = true;
     }
