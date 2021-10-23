@@ -36,6 +36,8 @@ public class Dice : MonoBehaviour
             1 => "Pretty Inverted Conditions",
             2 => "Pretty Fast Conditions",
             3 => "Pretty Dark Conditions",
+            
+            5 => "Oxygen Escape!",
             _ => _textMeshPro.text
         };
     }
