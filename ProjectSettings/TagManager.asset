@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - OxygenPickup
-  - Infected
+  - infected
+  - lockedDoor
+  - enemy
+  - key
   layers:
   - Default
   - TransparentFX
