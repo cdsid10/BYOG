@@ -2,9 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyMovement : MonoBehaviour
+public class PatrolEnemy : MonoBehaviour
 {
-    bool hasToIgnorePatroling;
     Vector3 nextPos;
     [SerializeField] private Transform pos1;
     [SerializeField] private Transform pos2;
@@ -17,33 +16,25 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         nextPos = pos1.position;
-
-        if(pos1.position == pos2.position)
-        {
-            hasToIgnorePatroling = true;
-        }
     }
 
     void Update()
     {
-        if (!hasToIgnorePatroling)
+        if (transform.position == pos1.position)
         {
-            if (transform.position == pos1.position)
-            {
-                nextPos = pos2.position;
+            nextPos = pos2.position;
 
-                FacingTowardsObject();
-            }
-
-            if (transform.position == pos2.position)
-            {
-                nextPos = pos1.position;
-
-                FacingTowardsObject();
-            }
-
-            transform.position = Vector3.MoveTowards(transform.position, nextPos, enemySpeed * Time.deltaTime);
+            FacingTowardsObject();
         }
+
+        if (transform.position == pos2.position)
+        {
+            nextPos = pos1.position;
+
+            FacingTowardsObject();
+        }
+
+        transform.position = Vector3.MoveTowards(transform.position, nextPos, enemySpeed * Time.deltaTime);        
     }
 
     private void OnDrawGizmos()
@@ -95,7 +86,7 @@ public class EnemyMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(stopMovementAfter);
 
-        gameObject.GetComponent<EnemyMovement>().enabled = false;
+        gameObject.GetComponent<PatrolEnemy>().enabled = false;
     }
 
     IEnumerator SceneReloading()
