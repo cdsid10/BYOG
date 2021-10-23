@@ -22,6 +22,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private float maxTime;
 
     [SerializeField] private GameObject controls;
+    [SerializeField] private GameObject dialoguePurpleText;
 
 
     // Start is called before the first frame update
@@ -76,6 +77,11 @@ public class PlayerActions : MonoBehaviour
     {
         if (_dice.randomDiceSide == 5)
         {
+            if (other.CompareTag("PurpleDoor"))
+            {
+                dialoguePurpleText.SetActive(true);
+            }
+            
             if (!other.CompareTag("OxygenPickup")) return;
             currentOxygen += pickupValue;
             if (currentOxygen >= maxOxygen)
@@ -85,10 +91,33 @@ public class PlayerActions : MonoBehaviour
             other.gameObject.SetActive(false);
         }
 
-        if (_dice.randomDiceSide != 4) return;
-        if (!other.CompareTag("InfectedGoo")) return;
-        timeRemaining = maxTime;
-        other.gameObject.SetActive(false);
+        if (_dice.randomDiceSide == 4)
+        {
+            if (other.CompareTag("PurpleDoor"))
+            {
+                dialoguePurpleText.SetActive(true);
+            }
+            
+            if (!other.CompareTag("InfectedGoo")) return;
+            timeRemaining = maxTime;
+            other.gameObject.SetActive(false);
+        }
+
+        if (_dice.randomDiceSide > -1 & _dice.randomDiceSide < 6)
+        {
+            if (other.CompareTag("PurpleDoor"))
+            {
+                dialoguePurpleText.SetActive(true);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("PurpleDoor"))
+        {
+            dialoguePurpleText.SetActive(false);
+        }
     }
 
     IEnumerator HideControls()
