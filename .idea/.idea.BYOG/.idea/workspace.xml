@@ -17,6 +17,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Subbu/oxygenSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerAim.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CornerEnemy.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zph8LZZDcawLb76EwlFntVfkAN" />
   <component name="ProjectViewState">
@@ -65,7 +66,7 @@
       <workItem from="1634931435271" duration="5388000" />
       <workItem from="1634966356282" duration="8010000" />
       <workItem from="1635016042906" duration="441000" />
-      <workItem from="1635026962459" duration="297000" />
+      <workItem from="1635026962459" duration="4243000" />
     </task>
     <servers />
   </component>

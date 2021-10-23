@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerActions : MonoBehaviour
 {
     private Dice _dice;
+
+    [SerializeField] private Animator _animator;
 
     [SerializeField] private TextMeshProUGUI textInfo;
     [SerializeField] private TextMeshProUGUI overallText;
@@ -23,6 +26,8 @@ public class PlayerActions : MonoBehaviour
 
     [SerializeField] private GameObject controls;
     [SerializeField] private GameObject dialoguePurpleText;
+    [SerializeField] private GameObject dialogueYellowText;
+    [SerializeField] private GameObject blackScreen;
 
 
     // Start is called before the first frame update
@@ -75,13 +80,19 @@ public class PlayerActions : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("PurpleDoor"))
+        {
+            dialoguePurpleText.SetActive(true);
+        }
+            
+        if (other.CompareTag("YellowDoor"))
+        {
+            Debug.Log("saygduhsa");
+            dialogueYellowText.SetActive(true);
+        }
+        
         if (_dice.randomDiceSide == 5)
         {
-            if (other.CompareTag("PurpleDoor"))
-            {
-                dialoguePurpleText.SetActive(true);
-            }
-            
             if (!other.CompareTag("OxygenPickup")) return;
             currentOxygen += pickupValue;
             if (currentOxygen >= maxOxygen)
@@ -93,10 +104,15 @@ public class PlayerActions : MonoBehaviour
 
         if (_dice.randomDiceSide == 4)
         {
-            if (other.CompareTag("PurpleDoor"))
-            {
-                dialoguePurpleText.SetActive(true);
-            }
+            // if (other.CompareTag("PurpleDoor"))
+            // {
+            //     dialoguePurpleText.SetActive(true);
+            // }
+            //
+            // if (other.CompareTag("YellowDoor"))
+            // {
+            //     dialogueYellowText.SetActive(true);
+            // }
             
             if (!other.CompareTag("InfectedGoo")) return;
             timeRemaining = maxTime;
@@ -105,11 +121,17 @@ public class PlayerActions : MonoBehaviour
 
         if (_dice.randomDiceSide > -1 & _dice.randomDiceSide < 6)
         {
-            if (other.CompareTag("PurpleDoor"))
-            {
-                dialoguePurpleText.SetActive(true);
-            }
+            // if (other.CompareTag("PurpleDoor"))
+            // {
+            //     dialoguePurpleText.SetActive(true);
+            // }
+            //
+            // if (other.CompareTag("YellowDoor"))
+            // {
+            //     dialogueYellowText.SetActive(true);
+            // }
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -118,12 +140,41 @@ public class PlayerActions : MonoBehaviour
         {
             dialoguePurpleText.SetActive(false);
         }
+        
+        if (other.CompareTag("YellowDoor"))
+        {
+            dialogueYellowText.SetActive(false);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("infected"))
+        {
+            Reset();
+        }
     }
 
     IEnumerator HideControls()
     {
         yield return new WaitForSeconds(5f);
         controls.SetActive(false);
+        yield break;
+    }
+
+    public void Reset()
+    {
+        StartCoroutine(ResetLoop());
+    }
+
+    private IEnumerator ResetLoop()
+    {
+        //sound
+        _animator.SetTrigger("Death");
+        yield return new WaitForSeconds(1f);
+        blackScreen.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         yield break;
     }
 }

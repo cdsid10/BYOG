@@ -12,6 +12,9 @@ TagManager:
   - InfectedGoo
   - Infected
   - PurpleDoor
+  - LevelBox
+  - Ground
+  - YellowDoor
   layers:
   - Default
   - TransparentFX

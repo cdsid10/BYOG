@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class PatrolEnemy : MonoBehaviour
 {
+    private PlayerActions _playerActions;
+    
     Vector3 nextPos;
     [SerializeField] private Transform pos1;
     [SerializeField] private Transform pos2;
@@ -15,6 +17,7 @@ public class PatrolEnemy : MonoBehaviour
 
     void Start()
     {
+        _playerActions = FindObjectOfType<PlayerActions>();
         nextPos = pos1.position;
     }
 
@@ -46,7 +49,7 @@ public class PatrolEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //_playerActions.Reset();
         }
     }
 
@@ -61,7 +64,7 @@ public class PatrolEnemy : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().rotation = objectOnAngle - 90.0f;
 
             StartCoroutine(StoppingEnemyMovement());
-            StartCoroutine(SceneReloading());
+            _playerActions.Reset();
         }
     }
 
