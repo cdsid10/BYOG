@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
 
     [SerializeField] private Light2D _globalLight;
-    [SerializeField] private Light2D playerLight;
+    [SerializeField] private GameObject playerLight;
     
     [SerializeField] private float moveSpeed;
 
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
                 case 3:
                     NormalMovement();
                     _globalLight.intensity = 0.05f;
-                    playerLight.enabled = true;
+                    playerLight.SetActive(true);
                     break;
                 case 4:
                     NormalMovement();

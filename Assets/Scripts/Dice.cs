@@ -10,6 +10,7 @@ public class Dice : MonoBehaviour
     [SerializeField] private Sprite[] diceSides;
 
     [SerializeField] private GameObject uITransition;
+    [SerializeField] private GameObject beforeUITransition;
 
     [SerializeField]
     private TextMeshProUGUI uILevelName;
@@ -36,7 +37,7 @@ public class Dice : MonoBehaviour
             1 => "Pretty Inverted Conditions",
             2 => "Pretty Fast Conditions",
             3 => "dARKER iNFESTATIONS",
-            4 => "iNFECTED SAY wHAT??!",
+            4 => "iNFECTED, SAY wHAT??!",
             5 => "Oxygen Escape!",
             _ => uILevelName.text
         };
@@ -45,10 +46,14 @@ public class Dice : MonoBehaviour
     IEnumerator RollDice()
     {
         randomDiceSide = -1;
-        randomDiceSide = Random.Range(0, 6);
+        yield return new WaitForSeconds(3f); //change this back to 3
+        beforeUITransition.SetActive(false);
+        randomDiceSide = Random.Range(0, 6); 
+        //randomDiceSide = 5;
+        _image.enabled = true;
         _image.sprite = diceSides[randomDiceSide];
-        yield return new WaitForSeconds(3f);
-        canPlayerMove = true;
+        yield return new WaitForSeconds(4f); //change this back to 3
         uITransition.SetActive(false);
+        canPlayerMove = true;
     }
 }
