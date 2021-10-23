@@ -8,10 +8,12 @@ using Light2D = UnityEngine.Experimental.Rendering.Universal.Light2D;
 public class PlayerMovement : MonoBehaviour
 {
     private Dice _dice;
+    private PlayerActions _playerActions;
     
     private Rigidbody2D _rigidbody2D;
 
     [SerializeField] private Light2D _globalLight;
+    [SerializeField] private Light2D playerLight;
     
     [SerializeField] private float moveSpeed;
 
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _dice = FindObjectOfType<Dice>();
+        _playerActions = FindObjectOfType<PlayerActions>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -42,7 +45,16 @@ public class PlayerMovement : MonoBehaviour
                     break;
                 case 3:
                     NormalMovement();
-                    _globalLight.intensity = 0.1f;
+                    _globalLight.intensity = 0.05f;
+                    playerLight.enabled = true;
+                    break;
+                case 4:
+                    NormalMovement();
+                    _playerActions.InfectedMode();
+                    break;
+                case 5:
+                    NormalMovement();
+                    _playerActions.OxygenMode();
                     break;
             }
         }

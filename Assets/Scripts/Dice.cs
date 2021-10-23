@@ -12,7 +12,7 @@ public class Dice : MonoBehaviour
     [SerializeField] private GameObject uITransition;
 
     [SerializeField]
-    private TextMeshProUGUI _textMeshPro;
+    private TextMeshProUGUI uILevelName;
     
     //image component of the dice ui image
     private Image _image;
@@ -30,15 +30,15 @@ public class Dice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _textMeshPro.text = randomDiceSide switch
+        uILevelName.text = randomDiceSide switch
         {
-            0 => "Pretty Normal Conditions",
+            0 => "nORMAL cONDITIONS",
             1 => "Pretty Inverted Conditions",
             2 => "Pretty Fast Conditions",
-            3 => "Pretty Dark Conditions",
-            
+            3 => "dARKER iNFESTATIONS",
+            4 => "iNFECTED SAY wHAT??!",
             5 => "Oxygen Escape!",
-            _ => _textMeshPro.text
+            _ => uILevelName.text
         };
     }
 
