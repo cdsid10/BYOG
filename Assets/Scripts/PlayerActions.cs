@@ -20,7 +20,8 @@ public class PlayerActions : MonoBehaviour
     [Header("Infected")] 
     [SerializeField] private float timeRemaining;
     [SerializeField] private float maxTime;
-    
+
+    [SerializeField] private GameObject controls;
 
 
     // Start is called before the first frame update
@@ -29,6 +30,10 @@ public class PlayerActions : MonoBehaviour
         _dice = FindObjectOfType<Dice>();
         currentOxygen = maxOxygen;
         timeRemaining = maxTime;
+        if (_dice.canPlayerMove)
+        {
+            StartCoroutine(HideControls());
+        }
     }
 
     // Update is called once per frame
@@ -84,5 +89,12 @@ public class PlayerActions : MonoBehaviour
         if (!other.CompareTag("InfectedGoo")) return;
         timeRemaining = maxTime;
         other.gameObject.SetActive(false);
+    }
+
+    IEnumerator HideControls()
+    {
+        yield return new WaitForSeconds(5f);
+        controls.SetActive(false);
+        yield break;
     }
 }

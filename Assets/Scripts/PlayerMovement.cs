@@ -58,12 +58,12 @@ public class PlayerMovement : MonoBehaviour
                     break;
                 case 4:
                     NormalMovement();
-                    objectiveText.text = "eSCAPE THE dECONTAMINATED AREA (INFECTED MODE).";
+                    objectiveText.text = "sURVIVE THROUGH THE DECONTAMINATION, FIND INFECTED GOOPS TO SURVIVE (INFECTED MODE).";
                     _playerActions.InfectedMode();
                     break;
                 case 5:
                     NormalMovement();
-                    objectiveText.text = "eSCAPE THE iNFECTED AREA (LOW ON OXYGEN MODE).";
+                    objectiveText.text = "rEPLENISH OXYGEN WITH OXY PICKUP AND ESCAPE (LOW ON OXYGEN MODE).";
                     _playerActions.OxygenMode();
                     break;
             }
