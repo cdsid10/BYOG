@@ -81,7 +81,7 @@ public class PlayerActions : MonoBehaviour
         }
 
         if (_dice.randomDiceSide != 4) return;
-        if (!other.CompareTag("Infected")) return;
+        if (!other.CompareTag("InfectedGoo")) return;
         timeRemaining = maxTime;
         other.gameObject.SetActive(false);
     }

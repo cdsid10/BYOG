@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         _dice = FindObjectOfType<Dice>();
         _playerActions = FindObjectOfType<PlayerActions>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -100,7 +101,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 movement.Normalize();
             }
-            _rigidbody2D.velocity = movement * (superSpeed);
+            _rigidbody2D.velocity = movement * (moveSpeed);
+            Time.timeScale = 2;
         }
         
         

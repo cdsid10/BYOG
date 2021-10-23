@@ -103,7 +103,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.35
 --- !u!50 &2361817808633756611
 Rigidbody2D:
   serializedVersion: 4
@@ -167,10 +167,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.9921884, y: 3.0044835}
-      - {x: -0.2684152, y: 0.41884583}
-      - {x: 0.25428617, y: 0.42821306}
-      - {x: 0.9890591, y: 2.9911242}
+    - - {x: -0.91433114, y: 2.9544325}
+      - {x: -0.23504779, y: 0.46889693}
+      - {x: 0.22091874, y: 0.4671417}
+      - {x: 0.87227297, y: 2.9355118}
 --- !u!1 &2361817809888913821
 GameObject:
   m_ObjectHideFlags: 0
