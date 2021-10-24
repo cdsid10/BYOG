@@ -16,6 +16,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Subbu/oxygenSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/J.J_/Door.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerAim.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CornerEnemy.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -67,7 +68,7 @@
       <workItem from="1634966356282" duration="8010000" />
       <workItem from="1635016042906" duration="441000" />
       <workItem from="1635026962459" duration="4783000" />
-      <workItem from="1635054797165" duration="595000" />
+      <workItem from="1635054797165" duration="3020000" />
     </task>
     <servers />
   </component>
