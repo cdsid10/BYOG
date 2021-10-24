@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5704978960679551333}
   - component: {fileID: 7759053925482238595}
+  - component: {fileID: 8599622863807153077}
   m_Layer: 0
   m_Name: oxygen
-  m_TagString: Untagged
+  m_TagString: OxygenPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7482667652216324306, guid: 24d1bc58bca8c164eb409c43e32fb478, type: 3}
-  m_Color: {r: 0, g: 0.35566998, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9289db07955d5b54a9e877ccd9867ae3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,3 +83,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &8599622863807153077
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140795023089936007}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
