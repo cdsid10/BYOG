@@ -1406,6 +1406,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 26731679cd95172448f5b860da59464d, type: 3}
     - target: {fileID: 5969032583009190695, guid: 40089b4fa0ef2fe498c6be542665dcdc, type: 3}
+      propertyPath: diceRollSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 51ac34e6c8dff4a41bfcc7925d3baa2f, type: 3}
+    - target: {fileID: 5969032583009190695, guid: 40089b4fa0ef2fe498c6be542665dcdc, type: 3}
       propertyPath: areaChangeSFX
       value: 
       objectReference: {fileID: 8300000, guid: 7ec6cda06a2cc794aa41cff484c9e984, type: 3}

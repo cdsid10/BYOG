@@ -51,6 +51,8 @@ public class Dice : MonoBehaviour
 
     IEnumerator RollDice()
     {
+        BGMusicManager.instance.StopSound("In_Game_BG_Music");
+        SFXManager.instance.Play_DiceRollSFX();
         randomDiceSide = -1;
         yield return new WaitForSeconds(2.8f); //change this back to 2.8f
         beforeUITransition.SetActive(false);
@@ -61,5 +63,7 @@ public class Dice : MonoBehaviour
         yield return new WaitForSeconds(4f); //change this back to 4
         uITransition.SetActive(false);
         canPlayerMove = true;
+        //BGMusicManager.instance.StopSound("In_Game_BG_Music");
+        BGMusicManager.instance.PlaySound("In_Game_BG_Music");
     }
 }

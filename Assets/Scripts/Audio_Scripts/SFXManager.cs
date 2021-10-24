@@ -20,7 +20,7 @@ public class SFXManager : MonoBehaviour
     private AudioSource sFXAudioSource2;
 
     [SerializeField]
-    private AudioClip enemyIdealSFX, enemySneezeSFX, playerDeathSFX, areaChangeSFX, pickupSFX;
+    private AudioClip enemyIdealSFX, enemySneezeSFX, playerDeathSFX, areaChangeSFX, pickupSFX, diceRollSFX;
 
     void Awake()
     {
@@ -95,5 +95,10 @@ public class SFXManager : MonoBehaviour
     public void Play_PickupSFX()
     {
         AudioSource.PlayClipAtPoint(pickupSFX, transform.position);
+    }
+    
+    public void Play_DiceRollSFX()
+    {
+        AudioSource.PlayClipAtPoint(diceRollSFX, transform.position);
     }
 }
