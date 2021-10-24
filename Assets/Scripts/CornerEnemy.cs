@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class CornerEnemy : MonoBehaviour
 {
+    private PlayerActions _playerActions;
+    
     bool isPlayerInRange;
 
     [SerializeField] float minAngle;
@@ -15,7 +18,12 @@ public class CornerEnemy : MonoBehaviour
     [SerializeField] bool clockwiseRotation;
 
     float objectOnAngle;
-    [SerializeField] float waitBeforeReload = 2.0f;
+    [SerializeField] float waitBeforeReload = 5.0f;
+
+    private void Start()
+    {
+        _playerActions = FindObjectOfType<PlayerActions>();
+    }
 
     void Update()
     {
@@ -45,10 +53,10 @@ public class CornerEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        // if (collision.gameObject.CompareTag("Player"))
+        // {
+        //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -61,7 +69,7 @@ public class CornerEnemy : MonoBehaviour
             objectOnAngle = Mathf.Atan2(directionOfObject.y, directionOfObject.x) * Mathf.Rad2Deg;
             gameObject.GetComponent<Rigidbody2D>().rotation = objectOnAngle - 90.0f;
 
-            StartCoroutine(SceneReloading());
+            _playerActions.Reset();
         }
     }
 

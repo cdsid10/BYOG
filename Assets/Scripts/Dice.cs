@@ -52,13 +52,13 @@ public class Dice : MonoBehaviour
     IEnumerator RollDice()
     {
         randomDiceSide = -1;
-        yield return new WaitForSeconds(0.5f); //change this back to 2.8f
+        yield return new WaitForSeconds(0.1f); //change this back to 2.8f
         beforeUITransition.SetActive(false);
         randomDiceSide = Random.Range(0, 6); 
         //randomDiceSide = 4;
         _image.enabled = true;
         _image.sprite = diceSides[randomDiceSide];
-        yield return new WaitForSeconds(0.5f); //change this back to 3
+        yield return new WaitForSeconds(0.1f); //change this back to 4
         uITransition.SetActive(false);
         canPlayerMove = true;
     }

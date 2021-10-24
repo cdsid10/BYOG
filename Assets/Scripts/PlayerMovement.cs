@@ -69,9 +69,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Backslash))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            _playerActions.Reset();
         }
         
     }
