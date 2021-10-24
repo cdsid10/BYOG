@@ -38,12 +38,12 @@ public class Dice : MonoBehaviour
             1 => "tHE iNVERTED wAY TO eSCAPE.",
             2 => "tHE fASTEST wAY TO eSCAPE.",
             3 => "dARKER iNFESTATIONS.",
-            4 => "iNFECTED, SAY wHAT??!",
-            5 => "lIMITED oXYGEN sUPPLY!",
+            // 4 => "iNFECTED, SAY wHAT??!",
+            4 => "lIMITED oXYGEN sUPPLY!",
             _ => uILevelName.text
         };
 
-        if (randomDiceSide == 5)
+        if (randomDiceSide == 4)
         {
             oxygenPickup.SetActive(true);
         }
@@ -52,13 +52,13 @@ public class Dice : MonoBehaviour
     IEnumerator RollDice()
     {
         randomDiceSide = -1;
-        yield return new WaitForSeconds(0.1f); //change this back to 2.8f
+        yield return new WaitForSeconds(2.8f); //change this back to 2.8f
         beforeUITransition.SetActive(false);
-        //randomDiceSide = Random.Range(0, 6); 
-        randomDiceSide = 0;
+        randomDiceSide = Random.Range(0, 5); 
+        //randomDiceSide = 4;
         _image.enabled = true;
         _image.sprite = diceSides[randomDiceSide];
-        yield return new WaitForSeconds(0.1f); //change this back to 4
+        yield return new WaitForSeconds(4f); //change this back to 4
         uITransition.SetActive(false);
         canPlayerMove = true;
     }

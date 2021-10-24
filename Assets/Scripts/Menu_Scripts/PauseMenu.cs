@@ -11,9 +11,9 @@ public class PauseMenu : MonoBehaviour
 
     private bool isGamePaused;
 
-    [SerializeField] private GameObject loadingScreenPanel;
-    [SerializeField] private Slider loadingScreenSlider;
-    [SerializeField] private Text loadingScreenProgressText;
+    // [SerializeField] private GameObject loadingScreenPanel;
+    // [SerializeField] private Slider loadingScreenSlider;
+    // [SerializeField] private Text loadingScreenProgressText;
 
     void Update()
     {
@@ -70,14 +70,14 @@ public class PauseMenu : MonoBehaviour
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneBuildNum);
 
-        loadingScreenPanel.SetActive(true);
+        //loadingScreenPanel.SetActive(true);
 
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
 
-            loadingScreenSlider.value = progress;
-            loadingScreenProgressText.text = progress * 100f + "%";
+            //loadingScreenSlider.value = progress;
+            //loadingScreenProgressText.text = progress * 100f + "%";
 
             yield return null;
         }

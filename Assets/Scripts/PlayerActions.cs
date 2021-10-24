@@ -28,6 +28,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private GameObject dialoguePurpleText;
     [SerializeField] private GameObject dialogueYellowText;
     [SerializeField] private GameObject blackScreen;
+    [SerializeField] private GameObject lightsMap;
 
 
     // Start is called before the first frame update
@@ -45,12 +46,15 @@ public class PlayerActions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_dice.randomDiceSide == 3)
+        {
+            lightsMap.SetActive(false);
+        }
     }
 
     public void OxygenMode()
     {
-        if (_dice.randomDiceSide == 5)
+        if (_dice.randomDiceSide == 4)
         {
             currentOxygen -= depleteRate * Time.deltaTime;
             textInfo.text = "OXYGEN REMAINING: ";
@@ -59,13 +63,13 @@ public class PlayerActions : MonoBehaviour
 
         if (currentOxygen <= 0)
         {
-            //Reset with ui first
+            Reset();
         }
     }
 
     public void InfectedMode()
     {
-        if (_dice.randomDiceSide == 4)
+        if (_dice.randomDiceSide == 5)
         {
             timeRemaining -= Time.deltaTime;
             textInfo.text = "DECONTAMINATION IN: ";
@@ -87,11 +91,10 @@ public class PlayerActions : MonoBehaviour
             
         if (other.CompareTag("YellowDoor"))
         {
-            Debug.Log("saygduhsa");
             dialogueYellowText.SetActive(true);
         }
         
-        if (_dice.randomDiceSide == 5)
+        if (_dice.randomDiceSide == 4)
         {
             if (!other.CompareTag("OxygenPickup")) return;
             currentOxygen += pickupValue;
@@ -102,7 +105,7 @@ public class PlayerActions : MonoBehaviour
             other.gameObject.SetActive(false);
         }
 
-        if (_dice.randomDiceSide == 4)
+        if (_dice.randomDiceSide == 5)
         {
             // if (other.CompareTag("PurpleDoor"))
             // {
@@ -169,12 +172,17 @@ public class PlayerActions : MonoBehaviour
 
     private IEnumerator ResetLoop()
     {
-        //sound
+        SFXManager.instance.Play_PlayerDeathSFX();
         _animator.SetTrigger("Death");
         yield return new WaitForSeconds(1f);
         blackScreen.SetActive(true);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         yield break;
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

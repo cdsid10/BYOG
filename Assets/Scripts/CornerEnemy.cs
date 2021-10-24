@@ -53,10 +53,10 @@ public class CornerEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // if (collision.gameObject.CompareTag("Player"))
-        // {
-        //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        // }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _playerActions.Reset();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -69,7 +69,7 @@ public class CornerEnemy : MonoBehaviour
             objectOnAngle = Mathf.Atan2(directionOfObject.y, directionOfObject.x) * Mathf.Rad2Deg;
             gameObject.GetComponent<Rigidbody2D>().rotation = objectOnAngle - 90.0f;
 
-            _playerActions.Reset();
+            
         }
     }
 

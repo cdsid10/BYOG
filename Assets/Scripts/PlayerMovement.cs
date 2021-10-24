@@ -56,22 +56,29 @@ public class PlayerMovement : MonoBehaviour
                     _globalLight.intensity = 0.05f;
                     playerLight.SetActive(true);
                     break;
+                // case 4:
+                //     NormalMovement();
+                //     objectiveText.text = "sURVIVE THROUGH THE DECONTAMINATION, FIND INFECTED GOOPS TO SURVIVE (INFECTED MODE).";
+                //     _playerActions.InfectedMode();
+                //     break;
                 case 4:
-                    NormalMovement();
-                    objectiveText.text = "sURVIVE THROUGH THE DECONTAMINATION, FIND INFECTED GOOPS TO SURVIVE (INFECTED MODE).";
-                    _playerActions.InfectedMode();
-                    break;
-                case 5:
                     NormalMovement();
                     objectiveText.text = "rEPLENISH OXYGEN WITH OXY PICKUP AND ESCAPE (LOW ON OXYGEN MODE).";
                     _playerActions.OxygenMode();
                     break;
+                
+                
             }
         }
         
         if (Input.GetKeyDown(KeyCode.Backslash))
         {
             _playerActions.Reset();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Slash))
+        {
+            SceneManager.LoadScene(0);
         }
         
     }

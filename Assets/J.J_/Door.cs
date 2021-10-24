@@ -13,6 +13,8 @@ public class Door : MonoBehaviour
     [SerializeField] GameObject key_UIBlue;
     [SerializeField] GameObject keyDialogue_UIPurple;
     [SerializeField] GameObject keyDialogue_UIBlue;
+    [SerializeField] GameObject PurpleTrigger;
+    [SerializeField] GameObject BlueTrigger;
 
     private void Start()
     {
@@ -60,17 +62,21 @@ public class Door : MonoBehaviour
 
     public void OpenDoorPurple()
     {
+        SFXManager.instance.Play_AreaChangeSFX();
         hasPurpleKey = false;
-
+        PurpleTrigger.SetActive(false);
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        
     }
     
     public void OpenDoorBlue()
     {
+        SFXManager.instance.Play_AreaChangeSFX();
         hasBlueKey = false;
-
+        BlueTrigger.SetActive(false);
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        
     }
 }

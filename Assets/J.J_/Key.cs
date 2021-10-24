@@ -9,7 +9,7 @@ public class Key : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("purple"))
         {
             Door.hasPurpleKey = true;
-
+            SFXManager.instance.Play_PickupSFX();
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
@@ -17,6 +17,7 @@ public class Key : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("blue"))
         {
             Door.hasBlueKey = true;
+            SFXManager.instance.Play_PickupSFX();
 
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;

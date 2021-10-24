@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -45,11 +46,11 @@ public class PatrolEnemy : MonoBehaviour
         Gizmos.DrawLine(pos1.position, pos2.position);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            //_playerActions.Reset();
+            _playerActions.Reset();
         }
     }
 
@@ -64,7 +65,7 @@ public class PatrolEnemy : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().rotation = objectOnAngle - 90.0f;
 
             StartCoroutine(StoppingEnemyMovement());
-            _playerActions.Reset();
+            //_playerActions.Reset();
         }
     }
 
